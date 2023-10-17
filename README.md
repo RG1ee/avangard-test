@@ -24,9 +24,9 @@ cd avangard-test
 cat env.sample > .env
 
 # Запуск
-docker compose up --build
+docker compose up --build -d
 # Или
-docker-compose up --build
+docker-compose up --build -d
 ```
 
 ## Пример запросов
