@@ -35,7 +35,7 @@ docker-compose up --build
 Если истекла экспирация токена,\
 то отправьте запрос на Endpoint - 2 для получения нового токена
 
-### Enpoint 1 - /api/v1/users/registration
+### Enpoint 1 - /api/v1/users/registration POST
 request:
 ```bash
 curl -X POST -F \
@@ -54,7 +54,7 @@ response - HTTP 200 OK
 }
 ```
 
-### Endpoint 2 - /api/v1/users/login
+### Endpoint 2 - /api/v1/users/login POST
 request:
 ```bash
 curl -X POST \
