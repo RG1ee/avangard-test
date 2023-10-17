@@ -80,7 +80,7 @@ curl -X POST \
     http://0.0.0.0:5000/api/v1/data/ \
     -H 'accept: application/json' \
     -H 'Content-Type: application/json' \
-    -H 'Authorization: Bearer access_token (Ответ из Endpoint - 2)'
+    -H 'Authorization: Bearer access_token (Ответ из Endpoint - 2)' \
     -d '{
         "name": "Secret Name",
         "data": "Top Secret Data"
@@ -95,7 +95,27 @@ response - HTTP 200 OK
 }
 ```
 
-### Endpoint 4 - /api/v1/data GET
+### Endpoint 4 - /api/v1/data/my_data GET
+request:
+```bash
+curl -X GET \
+    http://0.0.0.0:5000/api/v1/data/my-data \
+    -H 'accept: application/json' \
+    -H 'Content-Type: application/json' \
+    -H 'Authorization: Bearer access_token (Ответ из Endpoint - 2)'
+```
+response - HTTP 200 OK
+```bash
+[
+    {
+        "id": 1,
+        "name": "Secret Name",
+        "data": "Top Secret Data"
+    }
+]
+```
+
+### Endpoint 5 - /api/v1/data GET
 request:
 ```bash
 curl -X GET \
@@ -106,14 +126,16 @@ curl -X GET \
 ```
 response - HTTP 200 OK (Ответ будет в виде одной записи, так как значение per_page = 1. Если послать такой же запрос на `http://0.0.0.0:5000/api/v1/data/`, то ответом будут все записи)
 ```bash
-{
-    "id": 1,
-    "name": "Secret Name",
-    "data": "Top Secret Data"
-}
+[
+    {
+        "id": 1,
+        "name": "Secret Name",
+        "data": "Top Secret Data"
+    }
+]
 ```
 
-### Endpoint 5 - /api/v1/data/<data_id> GET
+### Endpoint 6 - /api/v1/data/<data_id> GET
 request:
 ```bash
 curl -X GET \
@@ -131,7 +153,7 @@ response - HTTP 200 OK
 }
 ```
 
-### Endpoint 6 - api/v1/data/<data_id> PUT
+### Endpoint 7 - api/v1/data/<data_id> PUT
 request:
 ```bash
 curl -X PUT \
@@ -151,7 +173,7 @@ response - HTTP 200 OK
 }
 ```
 
-### Endpoint 7 - api/v1/data/<data_id> DELETE
+### Endpoint 8 - api/v1/data/<data_id> DELETE
 request:
 ```bash
 curl -X DELETE \

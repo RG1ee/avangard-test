@@ -141,3 +141,13 @@ class DataIdResource(Resource):
         )
 
         return {"Message": f"Successful data update number {data_id}"}
+
+
+class MyDataResource(Resource):
+    @jwt_required()
+    def get(self):
+        schema = DataSchema()
+        user = UserService.get_first_by_username(get_jwt_identity())
+        my_data = ConfidentialDataService.get_all_by_user_id(user_id=user.id)
+
+        return schema.dump(my_data, many=True)
