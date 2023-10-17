@@ -23,10 +23,15 @@ class Settings:
     """
 
     DUBUG: bool = bool(os.getenv("DEBUG", default=True))
-    DATABASE_URI = os.getenv(
+    DATABASE_URI: str = os.getenv(
         "DATABASE_URI",
         default="postgresql://postgres:postgres@127.0.0.1:5432/postgres",
     )
+    SECRET_KEY: str = os.getenv(
+        "SECRET_KEY",
+        default="secret key",
+    )
+    ALGORITHM: str = os.getenv("ALGORITHM", default="HS256")
 
 
 @lru_cache()
