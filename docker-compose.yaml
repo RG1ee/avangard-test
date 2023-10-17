@@ -12,5 +12,18 @@ services:
     ports:
       - ${POSTGRES_PORT-5432}:5432
 
+  app:
+    container_name: avangard-app
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: development
+    env_file: .env
+    ports:
+      - "5000:5000"
+    entrypoint: ["/code/entrypoint.sh"]
+    volumes:
+      - ./app:/app
+
 volumes:
   postgres_data:

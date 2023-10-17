@@ -31,7 +31,6 @@ class Settings:
         "SECRET_KEY",
         default="secret key",
     )
-    ALGORITHM: str = os.getenv("ALGORITHM", default="HS256")
 
 
 @lru_cache()
