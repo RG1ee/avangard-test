@@ -21,6 +21,7 @@ flask-marshmallow = "^0.15.0"
 [tool.poetry.group.dev.dependencies]
 pre-commit = "^3.5.0"
 ruff = "^0.1.0"
+black = "^23.10.0"
 
 [build-system]
 requires = ["poetry-core"]

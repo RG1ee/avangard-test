@@ -1,6 +1,4 @@
-import uuid
-
-from sqlalchemy import UUID
+from sqlalchemy import ForeignKey
 from sqlalchemy.orm import Mapped, mapped_column
 
 from src.settings.config_database import Base
@@ -9,11 +7,10 @@ from src.settings.config_database import Base
 class ConfidentialData(Base):
     __tablename__ = "confidential_data"
 
-    id: Mapped[UUID] = mapped_column(
-        UUID(as_uuid=True), primary_key=True, default=uuid.uuid4
-    )
+    id: Mapped[int] = mapped_column(primary_key=True)
     name: Mapped[str]
     data: Mapped[str]
+    user_id: Mapped[int] = mapped_column(ForeignKey("user.id"))
 
     def __str__(self) -> str:
         return f"{self.id}"
