@@ -20,10 +20,16 @@ class BaseService:
 
     @classmethod
     def get_one_or_none(cls, **filters):
+        """
+        Method for select by filters
+        """
         with Session() as session:
             return session.query(cls.model).filter_by(**filters).one_or_none()
 
     @classmethod
     def get_all(cls):
+        """
+        Method for get all
+        """
         with Session() as session:
             return session.query(cls.model).all()
