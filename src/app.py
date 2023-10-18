@@ -12,7 +12,7 @@ app.register_blueprint(api_data)
 
 
 def main():
-    app.run(debug=settings.DUBUG)
+    app.run(debug=settings.DUBUG, host="0.0.0.0", port=5000)
 
 
 if __name__ == "__main__":
